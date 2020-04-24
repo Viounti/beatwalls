@@ -36,7 +36,7 @@ sealed class WallStructure:Serializable
     val testRecursiveProperty: Double by BwDouble()
     val constantController by lazy { ConstantController(this) }
 
-    val a by BwDouble()
+    open val a by BwDouble()
 
     /**
      * dont touch
@@ -418,14 +418,14 @@ sealed class WallStructure:Serializable
     var localRotY: RotationMode = Default.localRotY
     /**
      * * localRotZ controls the rotation on the x-axis for each individual Wall in degree. allows random. Default: 0
-    *
-    *  example:
-    *
-    *  ```yaml
-    *  localRotZ: 20 # rotates each wall 20 degree to the right
-    *  localRotZ: random(-20,20) # rotates each wall on the x axis randomnly between -20 and 20.
+     *
+     *  example:
+     *
+     *  ```yaml
+     *  localRotZ: 20 # rotates each wall 20 degree to the right
+     *  localRotZ: random(-20,20) # rotates each wall on the x axis randomnly between -20 and 20.
      *  ```
-    */
+     */
     var localRotZ: RotationMode = Default.localRotZ
 
     /**
@@ -575,6 +575,15 @@ sealed class WallStructure:Serializable
     }
 }
 
+sealed class test: WallStructure(){
+
+}
+class test2: test(){
+    override fun generateWalls(): List<SpookyWall> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+}
 
 /**
  * dont touch
@@ -784,7 +793,7 @@ class SteadyCurve:WallStructure(){
     /**
      * generating the Walls
      */
-     override fun generateWalls()  = run() 
+    override fun generateWalls()  = run()
 }
 
 /**
@@ -925,7 +934,7 @@ class Wall: WallStructure() {
     /**
      * generating the Walls
      */
-     override fun generateWalls()  = run() 
+    override fun generateWalls()  = run()
 }
 
 /**
@@ -966,7 +975,7 @@ class Helix: WallStructure() {
     /**
      * generating the Walls
      */
-     override fun generateWalls()  = run() 
+    override fun generateWalls()  = run()
 }
 
 class NoodleHelix: WallStructure(){
@@ -1011,7 +1020,7 @@ class NoodleHelix: WallStructure(){
     /**
      * generating the Walls
      */
-     override fun generateWalls()  = run() 
+    override fun generateWalls()  = run()
 }
 
 /**
@@ -1075,7 +1084,7 @@ class RandomBlocks: WallStructure(){
     /**
      * generating the Walls
      */
-     override fun generateWalls()  = run() 
+    override fun generateWalls()  = run()
 }
 
 /**
@@ -1114,7 +1123,7 @@ class RandomCurve: WallStructure(){
     /**
      * generating the Walls
      */
-     override fun generateWalls()  = run() 
+    override fun generateWalls()  = run()
 }
 
 /**
@@ -1158,7 +1167,7 @@ class HelixCurve: WallStructure() {
     /**
      * generating the Walls
      */
-     override fun generateWalls()  = run() 
+    override fun generateWalls()  = run()
 }
 
 //                                               _                _      ____               _
