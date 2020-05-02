@@ -367,6 +367,8 @@ sealed class WallStructure:Serializable
      */
     var bombs: Boolean = Default.bombs
 
+    val repeatNeu: MutableList<Repeat>  = mutableListOf()
+
     companion object Default {
         var mirror: Int = 0
         var time: Boolean = true
